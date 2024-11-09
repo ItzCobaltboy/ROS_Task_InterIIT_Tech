@@ -11,3 +11,12 @@ Gazebo Should also be installed alongside ROS2 Humble, [Link](https://gazebosim.
 ## Setup Gazebo with ROS2
 By Default, Gazebo and ROS2 are not configured to work alongside, hence we have to install dependancies for it
 The official guide for dependancing can be found on [Official Documentation for Gazebo](https://gazebosim.org/docs/latest/ros_installation/)
+
+### Before running the simulation, setup the bash file (required for every terminal booted)
+> source /opt/ros/humble/setup.bash
+> source <path_to_workspace>/ROS_Task_InterIIT_Tech/install/setup.bash
+
+This sets up required runtimes for shell
+
+### Launch
+> ros2 launch motor_controller world_launch
