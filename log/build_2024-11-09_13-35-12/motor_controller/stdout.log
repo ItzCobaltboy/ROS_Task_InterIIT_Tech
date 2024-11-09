@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/motor_controller/motor_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/motor_controller/motor_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/motor_controller/motor_controller.egg-info/entry_points.txt
+writing requirements to ../../build/motor_controller/motor_controller.egg-info/requires.txt
+writing top-level names to ../../build/motor_controller/motor_controller.egg-info/top_level.txt
+reading manifest file '../../build/motor_controller/motor_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/motor_controller/motor_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+copying motor_controller/operatorNode.py -> /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/motor_controller/build/lib/motor_controller
+running install
+running install_lib
+copying /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/motor_controller/build/lib/motor_controller/operatorNode.py -> /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller
+byte-compiling /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller/operatorNode.py to operatorNode.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/motor_controller/motor_controller.egg-info to /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info
+running install_scripts
+Installing operatorNode script to /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/motor_controller
+writing list of installed files to '/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/motor_controller/install.log'

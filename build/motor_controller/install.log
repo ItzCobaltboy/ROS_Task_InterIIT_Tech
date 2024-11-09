@@ -1,4 +1,6 @@
+/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller/operatorNode.py
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller/__init__.py
+/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller/__pycache__/operatorNode.cpython-310.pyc
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller/__pycache__/__init__.cpython-310.pyc
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/share/ament_index/resource_index/packages/motor_controller
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/share/motor_controller/package.xml
@@ -9,3 +11,4 @@
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info/zip-safe
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info/entry_points.txt
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info/requires.txt
+/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/motor_controller/operatorNode
