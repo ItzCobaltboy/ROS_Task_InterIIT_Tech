@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "operatorNode = ROS_Task_InterIIT_Tech.operatorNode:main"
         ],
     },
 )

@@ -1,0 +1,8 @@
+my_python_controller:
+  type: "my_robot_package/MyPythonController"  # This should match your controller's name
+  left_wheel: "left_wheel_joint"  # Left wheel joint name from URDF
+  right_wheel: "right_wheel_joint"  # Right wheel joint name from URDF
+  wheel_separation: 0.6  # Distance between the wheels (in meters)
+  wheel_radius: 0.15      # Radius of the wheels (in meters)
+  command_topic: "controller_input"  # Topic to listen to for velocity commands
+  publish_rate: 50         # How often to publish odometry

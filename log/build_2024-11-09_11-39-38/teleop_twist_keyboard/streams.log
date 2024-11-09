@@ -1,0 +1,33 @@
+[0.782s] Invoking command in '/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/src/teleop_twist_keyboard': PYTHONPATH=/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/teleop_twist_keyboard build --build-base /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/build install --record /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/install.log --single-version-externally-managed install_data
+[0.974s] running egg_info
+[0.975s] creating ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info
+[0.975s] writing ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/PKG-INFO
+[0.975s] writing dependency_links to ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/dependency_links.txt
+[0.975s] writing entry points to ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/entry_points.txt
+[0.976s] writing requirements to ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/requires.txt
+[0.976s] writing top-level names to ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/top_level.txt
+[0.976s] writing manifest file '../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/SOURCES.txt'
+[0.977s] reading manifest file '../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/SOURCES.txt'
+[0.977s] adding license file 'LICENSE'
+[0.977s] writing manifest file '../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info/SOURCES.txt'
+[0.978s] running build
+[0.978s] running build_py
+[0.978s] creating /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/build
+[0.978s] creating /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/build/lib
+[0.978s] copying teleop_twist_keyboard.py -> /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/build/lib
+[0.978s] running install
+[0.978s] running install_lib
+[0.979s] copying /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/build/lib/teleop_twist_keyboard.py -> /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/lib/python3.10/site-packages
+[0.979s] byte-compiling /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/lib/python3.10/site-packages/teleop_twist_keyboard.py to teleop_twist_keyboard.cpython-310.pyc
+[0.981s] running install_data
+[0.981s] creating /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/share/ament_index
+[0.981s] creating /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/share/ament_index/resource_index
+[0.981s] creating /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/share/ament_index/resource_index/packages
+[0.981s] copying resource/teleop_twist_keyboard -> /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/share/ament_index/resource_index/packages
+[0.981s] copying package.xml -> /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/share/teleop_twist_keyboard
+[0.981s] running install_egg_info
+[0.983s] Copying ../../build/teleop_twist_keyboard/teleop_twist_keyboard.egg-info to /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/lib/python3.10/site-packages/teleop_twist_keyboard-2.4.0-py3.10.egg-info
+[0.984s] running install_scripts
+[1.002s] Installing teleop_twist_keyboard script to /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/lib/teleop_twist_keyboard
+[1.002s] writing list of installed files to '/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/install.log'
+[1.035s] Invoked command in '/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/src/teleop_twist_keyboard' returned '0': PYTHONPATH=/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/teleop_twist_keyboard/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/teleop_twist_keyboard build --build-base /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/build install --record /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/build/teleop_twist_keyboard/install.log --single-version-externally-managed install_data

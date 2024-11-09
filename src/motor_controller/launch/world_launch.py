@@ -1,25 +1,41 @@
+import launch
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, LogInfo, IncludeLaunchDescription
 from launch_ros.actions import Node
-from launch.actions import LogInfo
+import os
 
 def generate_launch_description():
     return LaunchDescription([
-        LogInfo(
-            condition=None,
-            msg="Launching Gazebo with ROS2...",
+        DeclareLaunchArgument('robot_model', default_value='my_robot', description='Robot model name'),
+        
+        # Gazebo Launch
+        IncludeLaunchDescription(
+            launch_description=launch.substitutions.LaunchConfiguration('robot_model')
         ),
         
+        # Teleop Twist Keyboard
         Node(
-            package='gazebo_ros',
-            executable='gazebo',
+            package='teleop_twist_keyboard',
+            executable='teleop_twist_keyboard',
+            name='teleop_keyboard',
             output='screen',
-            arguments=['--verbose', '--world', '$(find my_package)/worlds/my_world.world']
+            parameters=[{'use_sim_time': True}],
+        ),
+
+        # Custom controller node
+        Node(
+            package='motor_controller',
+            executable='operatorNode',
+            name='Operator',
+            output='screen'
         ),
         
+        # Controller Manager (ros2_control)
         Node(
-            package='gazebo_ros',
-            executable='spawn_entity.py',
-            output='screen',
-            arguments=['-topic', '/robot_description', '-entity', 'my_robot']
+            package='controller_manager',
+            executable='spawner.py',
+            name='controller_spawner',
+            arguments=['--controller-manager', '/controller_manager', 'diff_drive_controller'],
+            output='screen'
         ),
     ])
