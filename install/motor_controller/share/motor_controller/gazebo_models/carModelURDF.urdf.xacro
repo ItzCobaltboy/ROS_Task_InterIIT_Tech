@@ -72,7 +72,7 @@
   </joint>
 
   <!-- Rear Left Wheel Joint -->
-  <joint name=left_wheel_joint" type="revolute">
+  <joint name="left_wheel_joint" type="revolute">
     <parent link="car_body"/>
     <child link="rear_left_wheel"/>
     <origin xyz="-0.5 0.25 0.1" rpy="0 0 0"/>
@@ -81,7 +81,7 @@
   </joint>
 
   <!-- Rear Right Wheel Joint -->
-  <joint name=right_wheel_joint" type="revolute">
+  <joint name="right_wheel_joint" type="revolute">
     <parent link="car_body"/>
     <child link="rear_right_wheel"/>
     <origin xyz="-0.5 -0.25 0.1" rpy="0 0 0"/>

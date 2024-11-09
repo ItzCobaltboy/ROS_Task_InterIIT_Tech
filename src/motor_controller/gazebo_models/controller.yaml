@@ -1,5 +1,5 @@
 my_python_controller:
-  type: "my_robot_package/MyPythonController"  # This should match your controller's name
+  type: "ROS_Task_InterIIT_Tech/MyPythonController"  # This should match your controller's name
   left_wheel: "left_wheel_joint"  # Left wheel joint name from URDF
   right_wheel: "right_wheel_joint"  # Right wheel joint name from URDF
   wheel_separation: 0.6  # Distance between the wheels (in meters)

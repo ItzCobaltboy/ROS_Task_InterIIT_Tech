@@ -1,3 +1,6 @@
+import os
+import glob
+
 from setuptools import find_packages, setup
 
 package_name = 'motor_controller'
@@ -10,6 +13,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+
+
+        ('share/' + package_name + '/launch', ['launch/launch.py',]),
+        ('share/' + package_name + '/gazebo_models', ['gazebo_models/carModelURDF.urdf',]),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

@@ -8,6 +8,7 @@ setup.py
 ../../build/motor_controller/motor_controller.egg-info/requires.txt
 ../../build/motor_controller/motor_controller.egg-info/top_level.txt
 ../../build/motor_controller/motor_controller.egg-info/zip-safe
+launch/launch.py
 motor_controller/__init__.py
 motor_controller/operatorNode.py
 resource/motor_controller
