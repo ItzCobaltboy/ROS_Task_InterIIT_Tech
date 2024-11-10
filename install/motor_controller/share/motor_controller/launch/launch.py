@@ -1,9 +1,12 @@
 import os
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import Command
+from launch_ros.parameter_descriptions import ParameterValue
+from launch.actions import IncludeLaunchDescription, ExecuteProcess, TimerAction
 
 
 def generate_launch_description():
@@ -12,53 +15,84 @@ def generate_launch_description():
     motor_controller_share = get_package_share_directory('motor_controller')
 
     # Path to the URDF file
-    urdf_file = os.path.join(motor_controller_share, 'gazebo_models', 'carModelURDF.urdf')
+    urdf_file = os.path.join(motor_controller_share, 'gazebo_models', 'carModelURDF.xacro')
+    
+    # Gazebo path
+    gazebo_ros_dir = get_package_share_directory('gazebo_ros')
 
+    # Gazebo launch
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(gazebo_ros_dir, 'launch', 'gazebo.launch.py')
+        ),
+        launch_arguments={'world': ''}.items()  # Empty world
+    )
+
+    # Get URDF via xacro
+    robot_description_content = Command(
+        ['xacro ', urdf_file]
+    )
+    robot_description = {'robot_description': ParameterValue(robot_description_content, value_type=str)}
+
+    # Load controllers configuration
+    controller_params_file = os.path.join(motor_controller_share, 'config', 'controllers.yaml')
 
     return LaunchDescription([
-
+        gazebo, 
         # Declare the argument for use_sim_time (simulation time vs. wall time)
         DeclareLaunchArgument('use_sim_time', default_value='true', description='Use simulation time'),
 
-        # 1. Start robot_state_publisher to publish robot transforms
+        # Start robot_state_publisher to publish robot transforms
         Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{
-                'robot_description': urdf_file, 'use_sim_time': LaunchConfiguration('use_sim_time')
-            }]
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        parameters=[robot_description],
+        output='screen'
         ),
         
-        # 2. Spawn the robot URDF into Gazebo
         Node(
-            package='gazebo_ros',
-            executable='spawn_entity.py',
-            name='spawn_robot',
-            output='screen',
-            arguments=['-file', urdf_file, '-entity', 'simple_4wd_robot'],
-            # Optional: Specify the initial position (x, y, z, roll, pitch, yaw)
-            # arguments=['-file', urdf_file, '-entity', 'simple_4wd_robot', '-x', '0', '-y', '0', '-z', '0.1']
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=[
+            '-topic', 'robot_description',
+            '-entity', 'four_wheeled_robot',
+            '-x', '0',
+            '-y', '0',
+            '-z', '0.15'
+        ],
+        output='screen'
         ),
 
+        # Controller spawner for diff_drive_controller
         Node(
-            package='controller_manager',  # ROS package that manages controllers
-            executable='spawner',  # Controller manager spawner
-            name='diff_drive_controller_spawner',
-            arguments=[
-                'diff_drive_controller',  # Name of the controller as defined in your config
-                '--controller-manager', '/controller_manager'
-            ],
-            output='screen'
+        package='controller_manager',
+        executable='ros2_control_node',
+        parameters=[robot_description, controller_params_file],
+        output='screen'
         ),
 
-        Node(
-            package='controller_manager',
-            executable='spawner',
-            arguments=['diff_drive_controller'],  # Spawn the differential drive controller
-            output='screen'
+        TimerAction(
+        period=3.0,
+        actions=[
+            ExecuteProcess(
+                cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+                     'joint_state_broadcaster'],
+                output='screen'
+            )
+        ]
         ),
+
+        TimerAction(
+        period=4.0,
+        actions=[
+            ExecuteProcess(
+                cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+                     'diff_drive_controller'],
+                output='screen'
+            )
+        ]
+        ),
+
 
         # Start the operator node (controller)
         Node(
@@ -66,5 +100,4 @@ def generate_launch_description():
             executable='operatorNode',
             output='screen'
         ),
-        
     ])
