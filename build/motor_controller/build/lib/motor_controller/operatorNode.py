@@ -9,8 +9,8 @@ class controller(Node):
         super().__init__("controller")
 
         # Subscribe to twist no and create publisher
-        self.twist_sub_ = self.create_subscription(Twist, "cmd_vel", self.incoming, 10)
-        self.twist_pub_ = self.create_publisher(Twist, "controller_input", 10)
+        self.twist_sub_ = self.create_subscription(Twist, "/cmd_vel", self.incoming, 10)
+        self.twist_pub_ = self.create_publisher(Twist, "/controller_input", 10)
         self.get_logger().info("Started Listener")
 
         # Define incoming function

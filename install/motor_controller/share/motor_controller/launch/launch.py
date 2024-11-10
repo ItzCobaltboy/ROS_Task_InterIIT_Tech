@@ -7,6 +7,14 @@ from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
+
+    # Get the package directory path
+    motor_controller_share = get_package_share_directory('motor_controller')
+
+    # Path to the URDF file
+    urdf_file = os.path.join(motor_controller_share, 'gazebo_models', 'carModelURDF.urdf')
+
+
     return LaunchDescription([
 
         # Declare the argument for use_sim_time (simulation time vs. wall time)
@@ -19,8 +27,7 @@ def generate_launch_description():
             name='robot_state_publisher',
             output='screen',
             parameters=[{
-                'robot_description': os.path.join(get_package_share_directory('motor_controller'), 'gazebo_models', 'carModelURDF.urdf'),
-                'use_sim_time': LaunchConfiguration('use_sim_time')
+                'robot_description': urdf_file, 'use_sim_time': LaunchConfiguration('use_sim_time')
             }]
         ),
         
@@ -30,18 +37,20 @@ def generate_launch_description():
             executable='spawn_entity.py',
             name='spawn_robot',
             output='screen',
-            arguments=['-file', os.path.join(get_package_share_directory('motor_controller'), 'gazebo_models', 'carModelURDF.urdf'), '-entity', 'simple_4wd_robot'],
+            arguments=['-file', urdf_file, '-entity', 'simple_4wd_robot'],
             # Optional: Specify the initial position (x, y, z, roll, pitch, yaw)
             # arguments=['-file', urdf_file, '-entity', 'simple_4wd_robot', '-x', '0', '-y', '0', '-z', '0.1']
         ),
 
         Node(
-            package='motor_controller',
-            executable='four_wheel_drive_controller',  # Your controller node
-            name='four_wheel_drive_controller',
-            output='screen',
-            parameters=[{'use_sim_time': True}],
-            remappings=[('/cmd_vel', '/cmd_vel')]  # Remapping the cmd_vel topic
+            package='controller_manager',  # ROS package that manages controllers
+            executable='spawner',  # Controller manager spawner
+            name='diff_drive_controller_spawner',
+            arguments=[
+                'diff_drive_controller',  # Name of the controller as defined in your config
+                '--controller-manager', '/controller_manager'
+            ],
+            output='screen'
         ),
 
         Node(
