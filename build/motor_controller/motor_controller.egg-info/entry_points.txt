@@ -1,3 +1,0 @@
-[console_scripts]
-operatorNode = motor_controller.operatorNode:main
-
