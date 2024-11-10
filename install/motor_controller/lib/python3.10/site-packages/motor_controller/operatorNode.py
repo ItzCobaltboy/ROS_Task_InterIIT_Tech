@@ -1,28 +1,33 @@
-#! /usr/bin/env python3
-
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
-class controller(Node):
+class Controller(Node):
     def __init__(self):
         super().__init__("controller")
-
-        # Subscribe to twist no and create publisher
-        self.twist_sub_ = self.create_subscription(Twist, "/cmd_vel", self.incoming, 10)
-        self.twist_pub_ = self.create_publisher(Twist, "/controller_input", 10)
-        self.get_logger().info("Started Listener")
-
-        # Define incoming function
+        
+        # Subscribe to teleop keyboard output and publish to diff_drive_controller
+        self.twist_sub_ = self.create_subscription(
+            Twist, 
+            "/cmd_vel", 
+            self.incoming, 
+            10
+        )
+        self.twist_pub_ = self.create_publisher(
+            Twist, 
+            "/diff_drive_controller/cmd_vel",  # Changed to correct topic
+            10
+        )
+        self.get_logger().info("Started Controller Node")
 
     def incoming(self, msg: Twist):
-        self.get_logger().info("Message received")
+        self.get_logger().info(f"Received velocity - linear: {msg.linear.x}, angular: {msg.angular.z}")
         self.twist_pub_.publish(msg)
-    
 
 def main(args=None):
     rclpy.init(args=args)
-    node = controller()
+    node = Controller()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

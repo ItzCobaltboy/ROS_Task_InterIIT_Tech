@@ -5,7 +5,7 @@
     <xacro:arg name="prefix" default=""/>
     
     <!-- Define materials -->
-    <material name="blue">
+    <material name="red">
         <color rgba="0 0 1 1"/>
     </material>
     
@@ -200,7 +200,7 @@
     <!-- Gazebo plugin -->
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find motor_controller)/config/controllers.yaml</parameters>
+            <parameters>$(find motor_controller)/gazebo_models/controller.yaml</parameters>
         </plugin>
     </gazebo>
 

@@ -200,9 +200,9 @@
     <!-- Gazebo plugin -->
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find motor_controller)/config/controllers.yaml</parameters>
+            <parameters>$(find motor_controller)/gazebo_models/controller.yaml</parameters>
         </plugin>
-    </gazebo>
+</gazebo>
 
     <!-- Base color in Gazebo -->
     <gazebo reference="base_link">
