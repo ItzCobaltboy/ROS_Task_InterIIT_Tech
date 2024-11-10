@@ -33,6 +33,7 @@ Start Gazebo manually
 Start the Teleops Keyboard service for inputs
 ```ros2 run teleop_twist_keyboard teleop_twist_keyboard```
 
+Launch the device
 ```ros2 launch motor_controller launch.py```
 
 ## Custom Controller Node (operatorNode.py)

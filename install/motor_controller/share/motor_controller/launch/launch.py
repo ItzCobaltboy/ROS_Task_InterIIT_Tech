@@ -67,14 +67,4 @@ def generate_launch_description():
             output='screen'
         ),
         
-        # Start the teleop twist keyboard node
-        Node(
-            package='teleop_twist_keyboard',
-            executable='teleop_twist_keyboard',
-            name='teleop_twist_keyboard',
-            output='screen',
-            parameters=[{'use_sim_time': True}],
-            remappings=[('/cmd_vel', '/cmd_vel')]
-        ),
-
     ])
