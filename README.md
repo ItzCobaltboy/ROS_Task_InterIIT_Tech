@@ -36,10 +36,6 @@ Start the Teleops Keyboard service for inputs
 Launch the device
 ```ros2 launch motor_controller launch.py```
 
-## Custom Controller Node (operatorNode.py)
-
-The operatorNode.py is a custom node that listens to the cmd_vel topic and re-publishes control messages to drive the robot. This is useful for adding additional logic for controlling the robot beyond basic teleoperation. The purpose of this node was to showcase knowledge regarding creation and usage of publishers and subscribers
-
 # ABOUT THE CODE
 
 The code as of now is partially functional, so it won't run using the launch command because I haven't been able to setup the controller and launch script for the system, the URDF for the model is correct and the main part of logic that is **Nodes and ROS Communication Methods** is fully functional and can be tried by manually initialising the nodes in different terminals
@@ -54,3 +50,30 @@ cd src/motor_controller/motor_controller
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
+
+# Functioning
+The simulator uses multiple components
+
+## ROS2
+Used as a framework, consisting of nodes which can commincate between each other using publishers/subscribers or two way client-server communications using Services and Actions.
+
+## Custom Controller Node (operatorNode.py)
+
+The operatorNode.py is a custom node that listens to the cmd_vel topic and re-publishes control messages to drive the robot. This is useful for adding additional logic for controlling the robot beyond basic teleoperation. The purpose of this node was to showcase knowledge regarding creation and usage of publishers and subscribers.
+
+## Teleops_twist_keyboard 
+
+The teleops_twist_keyboard is a built-in package of ROS2 utilized to take inputs from terminal for controlling our robot, the teleops_twist-keyboard creates a publisher on topic `cmd_vel` using the datatype as `twist` which, in this code is passed on to our Custom Controller Node, which forwards it to our model, it is an unnessary step but added to showcase working of the Nodes.
+
+## URDF Model
+,
+The URDF Model is a XML format file in which we describe our model's design in terms of `links`, and `joints`, each `link` acts as a element in the design (Eg: a cube and wheels) amd `joint` acts as connction between two `links`, we have to se parameters like `joint-type`(universal joint, revolute joint, Axis),
+
+## ROS2_Control
+
+The Framework used as a communication between ROS 2 system and actual hardware, here we add the Gazebo plugin for `dif_drive_controller` in the URDF file and set its configuration in the `configuration.yaml` file, and load it into launch file
+
+## Launch File
+
+The all in one file used to launch everything together, we initilize `robot_state_publisher`, spawn the bot by loading the URDF file, load the `controller_manager` for ROS2_Control and launch our Operator Node.
+
