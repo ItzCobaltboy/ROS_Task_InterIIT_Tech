@@ -9,6 +9,7 @@ setup.py
 ../../build/motor_controller/motor_controller.egg-info/top_level.txt
 ../../build/motor_controller/motor_controller.egg-info/zip-safe
 gazebo_models/carModelURDF.urdf.xacro
+gazebo_models/controller.yaml
 launch/launch.py
 motor_controller/__init__.py
 motor_controller/operatorNode.py

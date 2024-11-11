@@ -17,6 +17,7 @@ setup(
 
         ('share/' + package_name + '/launch', ['launch/launch.py',]),
         ('share/' + package_name + '/gazebo_models', ['gazebo_models/carModelURDF.urdf.xacro',]),
+        ('share/' + package_name + '/gazebo_models', ['gazebo_models/controller.yaml',]),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

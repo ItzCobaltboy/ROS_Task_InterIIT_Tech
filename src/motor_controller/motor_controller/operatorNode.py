@@ -16,7 +16,7 @@ class Controller(Node):
         )
         self.twist_pub_ = self.create_publisher(
             Twist, 
-            "/diff_drive_controller/cmd_vel",  # Changed to correct topic
+            "/diff_drive_controller/controller_input",  # Changed to correct topic
             10
         )
         self.get_logger().info("Started Controller Node")

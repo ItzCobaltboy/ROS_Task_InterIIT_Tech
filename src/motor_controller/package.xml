@@ -4,7 +4,7 @@
   <name>motor_controller</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="cobaltboy@todo.todo">cobaltboy</maintainer>
+  <maintainer email="pathanaffan62@gmail.com">Cobaltboy</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
@@ -15,6 +15,15 @@
   <depend>controller_manager</depend>
   <depend>teleop_twist_keyboard</depend>
   <depend>xacro</depend>
+
+  <depend>gazebo_ros2_control</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>controller_manager_msgs</depend>
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+  <depend>joint_state_broadcaster</depend>
+  <depend>diff_drive_controller</depend>
 
   <build_depend>launch</build_depend>
   <build_depend>launch_ros</build_depend>

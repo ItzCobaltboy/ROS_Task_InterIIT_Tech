@@ -153,7 +153,6 @@
         <axis xyz="0 0 1"/>
     </joint>
 
-    <!-- Rest of the file remains the same -->
     <!-- ros2_control section -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
@@ -206,7 +205,7 @@
 
     <!-- Base color in Gazebo -->
     <gazebo reference="base_link">
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Red</material>
     </gazebo>
 
 </robot>

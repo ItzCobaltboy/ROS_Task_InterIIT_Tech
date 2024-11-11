@@ -14,15 +14,15 @@ def generate_launch_description():
 
     # Path to the XACRO file
     xacro_file = os.path.join(motor_controller_share, 'gazebo_models', 'carModelURDF.urdf.xacro')
-
+    
     # Get URDF via xacro
     robot_description = {'robot_description': Command(['xacro ', xacro_file])}
-
+    
     # Path to the controller config file
     controller_params_file = os.path.join(
         motor_controller_share,
         'gazebo_models',
-        'controller.yaml'  # Note: changed from controllers.yaml to controller.yaml
+        'controller.yaml'
     )
 
     return LaunchDescription([
@@ -41,11 +41,26 @@ def generate_launch_description():
             launch_arguments={'world': ''}.items()
         ),
 
-        # Start robot_state_publisher
+        # Start robot_state_publisher first
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
+            name='robot_state_publisher',
             parameters=[robot_description],
+            output='screen'
+        ),
+
+        # Start controller_manager with robot description from topic
+        Node(
+            package='controller_manager',
+            executable='ros2_control_node',
+            parameters=[
+                controller_params_file,
+                {'use_sim_time': LaunchConfiguration('use_sim_time')}
+            ],
+            remappings=[
+                ('/robot_description', '/robot_state_publisher/robot_description')
+            ],
             output='screen'
         ),
 
@@ -57,32 +72,6 @@ def generate_launch_description():
                 '-topic', 'robot_description',
                 '-entity', 'four_wheeled_robot'
             ],
-            output='screen'
-        ),
-
-        # Start controller_manager
-        # Start controller_manager
-        TimerAction(
-            period=2.0,  # Wait 2 seconds after Gazebo starts
-            actions=[
-                Node(
-                    package='controller_manager',
-                    executable='ros2_control_node',
-                    parameters=[
-                        robot_description,
-                        controller_params_file,
-                        {'use_sim_time': LaunchConfiguration('use_sim_time')}
-            ],
-            output='screen'
-        )
-    ]
-),
-
-        # Spawn the diff_drive_controller
-        Node(
-            package='controller_manager',
-            executable='spawner',
-            arguments=['diff_drive_controller'],
             output='screen'
         ),
 

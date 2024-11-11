@@ -5,7 +5,7 @@
     <xacro:arg name="prefix" default=""/>
     
     <!-- Define materials -->
-    <material name="blue">
+    <material name="red">
         <color rgba="0 0 1 1"/>
     </material>
     
@@ -153,7 +153,6 @@
         <axis xyz="0 0 1"/>
     </joint>
 
-    <!-- Rest of the file remains the same -->
     <!-- ros2_control section -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
@@ -202,11 +201,11 @@
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
             <parameters>$(find motor_controller)/gazebo_models/controller.yaml</parameters>
         </plugin>
-</gazebo>
+    </gazebo>
 
     <!-- Base color in Gazebo -->
     <gazebo reference="base_link">
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Red</material>
     </gazebo>
 
 </robot>

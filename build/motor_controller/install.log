@@ -6,6 +6,7 @@
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/share/motor_controller/package.xml
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/share/motor_controller/launch/launch.py
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/share/motor_controller/gazebo_models/carModelURDF.urdf.xacro
+/home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/share/motor_controller/gazebo_models/controller.yaml
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info/PKG-INFO
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info/top_level.txt
 /home/cobaltboy/ROS2/ROS_Task_InterIIT_Tech/install/motor_controller/lib/python3.10/site-packages/motor_controller-0.0.0-py3.10.egg-info/SOURCES.txt
