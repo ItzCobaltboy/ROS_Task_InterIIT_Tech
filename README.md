@@ -27,9 +27,6 @@ use this command for installation
 This sets up required runtimes for shell
 
 # Launch
-Start Gazebo manually
-```gazebo```
-
 Start the Teleops Keyboard service for inputs
 ```ros2 run teleop_twist_keyboard teleop_twist_keyboard```
 
