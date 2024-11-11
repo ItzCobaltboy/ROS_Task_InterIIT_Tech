@@ -38,7 +38,7 @@ Launch the device
 
 # ABOUT THE CODE
 
-The code as of now is partially functional, so it won't run using the launch command because I haven't been able to setup the controller and launch script for the system, the URDF for the model is correct and the main part of logic that is **Nodes and ROS Communication Methods** is fully functional and can be tried by manually initialising the nodes in different terminals
+The code is currently functional and launched directly, it will load the gazebo model and start the required nodes, however the teleops_keyboard has to be started on its own, the URDF for the model is correct and the main part of logic that is **Nodes and ROS Communication Methods** is fully functional and can be tried by manually initialising the nodes in different terminals
 
 ### Make sure setup.bash is sourced in your terminal
 `source install/setup.bash`
