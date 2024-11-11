@@ -14,11 +14,7 @@ class Controller(Node):
             self.incoming, 
             10
         )
-        self.twist_pub_ = self.create_publisher(
-            Twist, 
-            "/diff_drive_controller/controller_input",  # Changed to correct topic
-            10
-        )
+        self.twist_pub_ = self.create_publisher(Twist, "/diff_drive_controller/cmd_vel_unstamped", 10 )# Changed to correct topic
         self.get_logger().info("Started Controller Node")
 
     def incoming(self, msg: Twist):

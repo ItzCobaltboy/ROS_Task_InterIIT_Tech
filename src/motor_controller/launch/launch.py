@@ -19,11 +19,7 @@ def generate_launch_description():
     robot_description = {'robot_description': Command(['xacro ', xacro_file])}
     
     # Path to the controller config file
-    controller_params_file = os.path.join(
-        motor_controller_share,
-        'gazebo_models',
-        'controller.yaml'
-    )
+    controller_params_file = os.path.join(motor_controller_share,'gazebo_models','controller.yaml')
 
     return LaunchDescription([
         # Declare the argument for use_sim_time
@@ -55,7 +51,7 @@ def generate_launch_description():
             package='controller_manager',
             executable='ros2_control_node',
             parameters=[
-                controller_params_file,
+                {'controller_config_file': 'controller_params_file'},
                 {'use_sim_time': LaunchConfiguration('use_sim_time')}
             ],
             remappings=[
